@@ -28,7 +28,7 @@ struct Professor professor1;
 
 printf("Digite o nome do Aluno: ");
   scanf("%d", &aluno1.nome);
-printf("Digite o valor disponivel: ");
+printf("Digite o valor disponivel: "); 
 
 
 
