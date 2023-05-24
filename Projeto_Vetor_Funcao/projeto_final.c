@@ -271,3 +271,55 @@ void restaurarUsuarios() {
     fclose(file);
     printf("Restauracao realizada com sucesso.\n");
 }
+
+int main() {
+    char rotina;
+
+    do {
+        printf("Selecione uma Rotina:\n");
+        printf("1. Incluir usuario\n");
+        printf("2. Editar usuario\n");
+        printf("3. Excluir usuario\n");
+        printf("4. Buscar usuario por email\n");
+        printf("5. Listar usuarios cadastrados\n");
+        printf("6. Fazer backup cadastrad\n");
+        printf("7. Restaurar\n");
+        printf("0. Sair\n");
+        printf("Rotina: ");
+        scanf(" %c", &rotina);
+        getchar();
+
+        switch (rotina) {
+            case '1':
+                adicionarUsuario();
+                break;
+            case '2':
+                editarUsuario();
+                break;
+            case '3':
+                deletarUsuario();
+                break;
+            case '4':
+                procurarPorEmail();
+                break;
+            case '5':
+                listarUsuarios();
+                break;
+            case '6':
+                usuariosBackup();
+                break;
+            case '7':
+                restaurarUsuarios();
+                break;
+            case '0':
+                printf("Programa fianlizado.\n");
+                break;
+            default:
+                printf("Rotina incorreta. Tente novamente.\n");
+        }
+
+        printf("\n");
+    } while (rotina != '0');
+
+    return 0;
+}
