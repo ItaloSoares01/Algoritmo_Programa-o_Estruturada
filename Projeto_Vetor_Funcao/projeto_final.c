@@ -142,3 +142,39 @@ void editarUsuario() {
 
     printf("O usuario foi editado com sucesso.\n");
 }
+
+void deletarUsuario() {
+    if (numUsuarios == 0) {
+        printf("Nenhum usuario cadastrado.\n");
+        return;
+    }
+
+    int id;
+    printf("Digite o ID do usuario que deseja excluir: ");
+    scanf("%d", &id);
+
+    int indiceUsuario = -1;
+    for (int i = 0; i < numUsuarios; i++) {
+        if (ids[i] == id) {
+            indiceUsuario = i;
+            break;
+        }
+    }
+
+    if (indiceUsuario == -1) {
+        printf("usuario nao localizado.\n");
+        return;
+    }
+
+    for (int i = indiceUsuario; i < numUsuarios - 1; i++) {
+        ids[i] = ids[i + 1];
+        strcpy(nomes[i], nomes[i + 1]);
+        strcpy(emails[i], emails[i + 1]);
+        strcpy(generos[i], generos[i + 1]);
+        strcpy(enderecos[i], enderecos[i + 1]);
+        alturas[i] = alturas[i + 1];
+    }
+
+    numUsuarios--;
+    printf("O usuario foi excluido com sucesso.\n");
+}
