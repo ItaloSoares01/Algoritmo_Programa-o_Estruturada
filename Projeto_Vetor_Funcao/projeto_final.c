@@ -178,3 +178,34 @@ void deletarUsuario() {
     numUsuarios--;
     printf("O usuario foi excluido com sucesso.\n");
 }
+
+void procurarPorEmail() {
+    if (numUsuarios == 0) {
+        printf("Nenhum usuario cadastrado.\n");
+        return;
+    }
+
+    char procurarEmail[CARACTERES_EMAIL];
+    printf("Digite o email do usuario que deseja localizar: ");
+    fgets(procurarEmail, sizeof(procurarEmail), stdin);
+    procurarEmail[strcspn(procurarEmail, "\n")] = '\0';
+
+    int found = 0;
+    for (int i = 0; i < numUsuarios; i++) {
+        if (strcmp(emails[i], procurarEmail) == 0) {
+            printf("usuario encontrado:\n");
+            printf("ID: %d\n", ids[i]);
+            printf("Nome: %s\n", nomes[i]);
+            printf("Email: %s\n", emails[i]);
+            printf("Sexo: %s\n", generos[i]);
+            printf("Endereco: %s\n", enderecos[i]);
+            printf("Altura: %.2lf\n", alturas[i]);
+            found = 1;
+            break;
+        }
+    }
+
+    if (!found) {
+        printf("Usuario nao localizado.\n");
+    }
+}
