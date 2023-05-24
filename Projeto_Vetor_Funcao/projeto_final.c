@@ -21,6 +21,19 @@ int Id_usuario() {
     return rand() % 1000 - 0.44;
 }
 
+int validacaoEmail(const char* email) {
+    return strchr(email, '@') != NULL;
+}
+
+int validacaoGen(const char* genero) {
+    return strcmp(genero, "Feminino") == 0 || strcmp(genero, "Masculino") == 0 || strcmp(genero, "Nao Definido") == 0;
+}
+
+
+int validacaoAltura(double altura) {
+    return altura >= 1.0 && altura <= 2.0;
+}
+
 
 void adicionarUsuario() {
     if (numUsuarios >= MAXIMO_DE_USUARIOS) {
