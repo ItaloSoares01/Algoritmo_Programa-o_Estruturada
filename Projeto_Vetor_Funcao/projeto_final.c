@@ -209,3 +209,21 @@ void procurarPorEmail() {
         printf("Usuario nao localizado.\n");
     }
 }
+
+void listarUsuarios() {
+    if (numUsuarios == 0) {
+        printf("Nenhum usuario cadastrado.\n");
+        return;
+    }
+
+    printf("usuarios cadastrados:\n");
+    for (int i = 0; i < numUsuarios; i++) {
+        printf("ID: %d\n", ids[i]);
+        printf("Nome: %s\n", nomes[i]);
+        printf("Email: %s\n", emails[i]);
+        printf("Sexo: %s\n", generos[i]);
+        printf("Endereço: %s\n", enderecos[i]);
+        printf("Altura: %.2lf\n", alturas[i]);
+        printf("\n");
+    }
+}
