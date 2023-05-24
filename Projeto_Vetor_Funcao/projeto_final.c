@@ -242,3 +242,19 @@ void usuariosBackup() {
     fclose(file);
     printf("Backup realizado com sucesso em Notes.\n");
 }
+
+void restaurarUsuarios() {
+    FILE* file = fopen("Notes.txt", "r");
+    if (file == NULL) {
+        printf("Falha ao encontrar aquivo.\n");
+        return;
+    }
+
+    numUsuarios = 0;
+    while (fscanf(file, "%d,%[^,],%[^,],%[^,],%[^,],%lf\n", &ids[numUsuarios], nomes[numUsuarios], emails[numUsuarios], generos[numUsuarios], enderecos[numUsuarios], &alturas[numUsuarios]) == 6) {
+        numUsuarios++;
+    }
+
+    fclose(file);
+    printf("Restauracao realizada com sucesso.\n");
+}
