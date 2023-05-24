@@ -227,3 +227,18 @@ void listarUsuarios() {
         printf("\n");
     }
 }
+
+void usuariosBackup() {
+    FILE* file = fopen("Notes.txt", "w");
+    if (file == NULL) {
+        printf("Falha na criacao do arquivo.\n");
+        return;
+    }
+
+    for (int i = 0; i < numUsuarios; i++) {
+        fprintf(file, "%d,%s,%s,%s,%s,%.2lf\n", ids[i], nomes[i], emails[i], generos[i], enderecos[i], alturas[i]);
+    }
+
+    fclose(file);
+    printf("Backup realizado com sucesso em Notes.\n");
+}
