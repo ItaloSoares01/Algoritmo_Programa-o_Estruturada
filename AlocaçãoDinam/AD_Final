@@ -3,7 +3,7 @@
 #include <string.h>
 
 typedef struct {
-    char nome[50];
+    char nome[77];
     int idade;
 } Usuario;
 
